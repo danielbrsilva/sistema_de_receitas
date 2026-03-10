@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ receita.nome }} - Daniel Receitas</title>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/receitas">Receitas</a>
+        <a href="/categorias">Categorias</a>
+    </nav>
+
+    <main class="container">
+
+        {% if receita %}
+        
+            <h1>{{ receita.nome }}</h1>
+
+            <p class="categoria-detalhe">
+                <strong>Categoria:</strong> {{ receita.categoria }}
+            </p>
+
+            <!-- IMAGEM -->
+            <img class="imagem-detalhe" src="{{ url_for('static', filename=receita.imagem) }}"  alt="{{ receita.nome }}">
+
+            <div class="card-detalhe">
+
+                <h3>Ingredientes</h3>
+                <ul class="lista-ingredientes">
+                    {% for ing in receita.ingredientes %}
+                        <li>{{ ing }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Modo de Preparo</h3>
+                <p class="preparo">
+                    {{ receita.preparo }}
+                </p>
+
+            </div>
+
+            <button onclick="window.location.href='/receitas'">
+                Voltar para Receitas
+            </button>
+
+        {% else %}
+            <h1>Receita não encontrada 😢</h1>
+        {% endif %}
+
+    </main>
+
+    <footer>Daniel Receitas 2026 💛</footer>
+
+</body>
+</html>

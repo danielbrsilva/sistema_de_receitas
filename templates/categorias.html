@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Daniel Receitas - Categorias</title>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/receitas">Receitas</a>
+        <a href="/categorias">Categorias</a>
+    </nav>
+
+    <main class="container">
+        <h1>Categorias</h1>
+        
+        <ul>
+            {% for cat in categorias %}
+                <li>
+                    <a href="/receitas">
+                        <h3>{{ cat }}</h3>
+                        <p>Explorar Setor</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div style="margin-top: 30px;">
+            <button onclick="window.location.href='/'">VOLTAR AO MENU</button>
+        </div>
+    </main>
+
+    <footer>Daniel Receitas 2026</footer>
+
+</body>
+</html>

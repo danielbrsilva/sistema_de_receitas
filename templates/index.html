@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Receitas de Daniel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/receitas">Receitas</a>
+        <a href="/categorias">Categorias</a>
+    </nav>
+
+    <main class="hero">
+
+        <div class="hero-content">
+            <h1>Daniel Receitas</h1>
+            <p class="subtitle">
+                Sabores que aquecem o coração 💛
+            </p>
+
+            <div class="destaque">
+                <h2>CHEF DANIEL</h2>
+                <p>O melhor cozinheiro do mundo.</p>
+            </div>
+
+            <button onclick="window.location.href='/receitas'" class="btn-principal">
+                ACESSAR RECEITAS
+            </button>
+        </div>
+
+    </main>
+
+    <footer>Daniel Receitas 2026 </footer>
+
+</body>
+</html>

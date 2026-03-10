@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Receitas - Receitas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/receitas">Receitas</a>
+        <a href="/categorias">Categorias</a>
+    </nav>
+
+    <main class="container">
+        <h1>Protocolos Ativos</h1>
+        <p>Selecione uma receita para acessar os dados:</p>
+
+        <ul>
+            {% for receita in receitas %}
+                <li>
+                    <a href="/receita/{{ receita.id }}">
+                        <img src="{{ url_for('static', filename=receita.imagem) }}" 
+                             alt="{{ receita.nome }}">
+                        <h3>{{ receita.nome }}</h3>
+                        <p class="categoria">Categoria: {{ receita.categoria }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div style="margin-top: 40px;">
+            <button onclick="window.location.href='/'">
+                VOLTAR
+            </button>
+        </div>
+    </main>
+
+    <footer>Daniel Receitas 2026</footer>
+
+</body>
+</html>
